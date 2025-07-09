@@ -15,7 +15,7 @@ labelencoder = LabelEncoder()
 RCAdata['ROOT_CAUSE'] = labelencoder.fit_transform(RCAdata['ROOT_CAUSE'])
 print(RCAdata.head())
 
-X_data = RCAdata[['CPU_LOAD','MEMORY_LEAK_LOAD','DELAY','ERROR_1001','ERROR_1002','ERROR_1003']]
+X_data = RCAdata[['CPU_LOAD','MEMORY_LEAK_LOAD','DELAY','ERROR_1000','ERROR_1001','ERROR_1002','ERROR_1003']]
 y_data = RCAdata['ROOT_CAUSE']
 
 print(X_data.head())
@@ -40,7 +40,7 @@ print(y_test.shape)
 
 model = keras.Sequential()
 
-model.add(keras.layers.Dense(128,input_shape=(6,),activation='relu'))
+model.add(keras.layers.Dense(128,input_shape=(7,),activation='relu'))
 model.add(keras.layers.Dense(128,activation='relu'))
 model.add(keras.layers.Dense(3,activation='softmax'))
 
